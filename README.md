@@ -64,8 +64,8 @@ Below is the affordability trend visualization for the year 2025:
 ## How to Run in Jupyter Notebook
 
 1. Open `CIVAI.ipynb` in Jupyter.
-
-2. Set the postcode:
+2. Change the directory of the datasets in the code
+3. Set the postcode:
 ```python
 from state_model import State
 state = State(postcode="W60WW")
