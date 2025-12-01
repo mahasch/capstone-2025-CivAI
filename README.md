@@ -17,6 +17,13 @@ The platform is built with **Python**, **LangGraph**, **MCP (Multi-Agent Control
 
 CIVAI consists of several specialized agents:
 
+### Affordability Trend Visualization
+
+Below is the affordability trend visualization for the year 2025:
+
+![Affordability Trend](./agent_flow_diagram.png)
+
+
 ### 1. **Postcode Validation Agent**
 - Ensures the input postcode is valid and properly formatted.
 - Standardizes the postcode for downstream agents.
@@ -52,6 +59,17 @@ CIVAI consists of several specialized agents:
 - Collects outputs from all other agents.
 - Produces a well-structured Markdown report combining housing, crime, transport, community, and policy insights.
 - Suitable for reading in Markdown or converting to PDF.
+
+---
+## How to Run in Jupyter Notebook
+
+1. Open `CIVAI.ipynb` in Jupyter.
+
+2. Set the postcode:
+```python
+from state_model import State
+state = State(postcode="W60WW")
+```
 
 ---
 
@@ -102,13 +120,4 @@ Local parks: Ravenscourt Park, Brook Green. Schools with good Ofsted ratings. Se
 
 ### 📜 Local Policies & Regulations
 Council planning regulations focus on affordable housing initiatives and green space preservation.
-
-
-## How to Run in Jupyter Notebook
-
-1. Open `CIVAI.ipynb` in Jupyter.
-
-2. Set the postcode:
-```python
-from state_model import State
-state = State(postcode="W60WW")
+```
