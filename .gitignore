@@ -1,0 +1,13 @@
+./venv/
+__pycache__/
+*.pyc
+.DS_Store
+.env
+.idea/
+./frontend/.vscode/
+logs/
+datasets/
+pdf_output/
+./frontend/node_modules/
+venv/
+./frontend/.angular/cache/
