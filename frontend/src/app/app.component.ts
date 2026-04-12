@@ -10,6 +10,9 @@ import { PostcodeService } from './services/postcode.service';
 export class AppComponent {
   @ViewChild('searchBar') searchBar!: SearchBarComponent;
   title = 'frontend';
+  ngOnInit(): void {
+    
+  }
   markDownResponse =  `# Exploring the Wonders of the Universe
 
 The universe is vast, mysterious, and full of astonishing phenomena. From black holes to nebulae, every corner of space holds secrets waiting to be discovered.
