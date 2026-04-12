@@ -1,3 +1,4 @@
+
 ./venv/
 __pycache__/
 *.pyc
@@ -11,3 +12,4 @@ pdf_output/
 ./frontend/node_modules/
 venv/
 ./frontend/.angular/cache/
+./backend/node_modules/

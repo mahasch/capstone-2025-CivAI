@@ -1,0 +1,7 @@
+<input
+  type="text"
+  placeholder="Enter postcode"
+  #searchInput
+  (keydown.enter)="onSearch(searchInput.value)"
+/>
+<button (click)="onSearch(searchInput.value)">Search</button>

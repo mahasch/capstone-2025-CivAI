@@ -1,0 +1,23 @@
+<div
+  class="page-wrapper lmn-width-100"
+  [ngClass]="hasEntered ? 'top-margin' : ''"
+>
+  <div>
+    <h1>Enter postcode:</h1>
+    <p>Find out infromation about Crime rates, Housing prices, Average Income, Transportation, Important Links and more</p>
+    <app-search-bar #searchBar (searchValue)="onSearchValue($event)"></app-search-bar>
+  </div>
+  <br />
+  <div *ngIf="hasEntered">
+    <div *ngIf="isLoading; else content">
+      <p>Loading area information...</p>
+    </div>
+    <ng-template #content>
+      <div class="markdown-container">
+        <markdown ngPreserveWhitespaces>{{markDownResponse}}</markdown>
+      </div>
+    </ng-template>
+  </div>
+  <br />
+</div>
+
