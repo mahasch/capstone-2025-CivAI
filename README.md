@@ -25,22 +25,25 @@ Below is the affordability trend visualization for the year 2025:
 
 
 ### 1. **Postcode Validation Agent**
-- Ensures the input postcode is valid and properly formatted.
-- Standardizes the postcode for downstream agents.
+- Ensures the input postcode is valid and properly formatted according to UK standards.
+- Standardises the postcode for downstream agents.
 
 ### 2. **Housing Agent**
 - Fetches borough-specific housing data from Excel files.
 - Queries mean household income via API.
-- Calculates **affordability metric**: `house price / mean income`.
-- Generates a natural-language summary of housing affordability and trends using Gemini LLM.
+- Calculates **affordability metric**: `house price / mean income`. This evaluates how easy it is to buy a home in the area.
+- Uses local sales data to check how often houses are bought.
+- Generates a natural-language summary of housing affordability and buying data using Gemini LLM.
 
 ### 3. **Crime & Safety Agent**
-- Analyzes crime data and local safety reports.
-- Summarizes key crime statistics and trends in plain English.
+- Uses an API to fetch crome data for a postcode
+- It clusters the crime categories 
+- Uses the returned data to analyse the crime data
+- Summarises key crime statistics and trends in plain English.
 
 ### 4. **Transport Agent**
 - Uses **Google Search grounding** via MCP to retrieve public transport and commute information.
-- Summarizes nearby Tube/rail/bus stations, average commute times, cycling and walking options.
+- Summarises nearby Tube/rail/bus stations, average commute times, cycling and walking options.
 
 ### 5. **Community Agent**
 - Uses Google Search grounding to fetch information about:
@@ -121,3 +124,6 @@ Local parks: Ravenscourt Park, Brook Green. Schools with good Ofsted ratings. Se
 ### 📜 Local Policies & Regulations
 Council planning regulations focus on affordable housing initiatives and green space preservation.
 ```
+
+## Notes for the project
+Due to time contraints, it was not possible to cover all of London's boroughs. The API that gets the crime and housing data is a paid one and only allows 2 postcodes to be entered for free. If there was more time, I would find another API that will cover a larger range of areas. 
