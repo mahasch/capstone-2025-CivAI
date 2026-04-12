@@ -6,10 +6,9 @@ __pycache__/
 .idea/
 frontend/.vscode/
 logs/
-datasets/
-pdf_output/
+# datasets/
+# pdf_output/
 frontend/node_modules/
 venv/
 frontend/.angular/cache/
 backend/node_modules/
-backend/pre_processing_data/
