@@ -1,0 +1,27 @@
+$font-stack: Helvetica, sans-serif;
+$primary-color: #fed5f8;
+
+body {
+  margin: 0;
+  font-family: $font-stack;
+  background-color: $primary-color;
+}
+
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  // start centered vertically
+  align-items: center;      // center horizontally
+  height: 100vh;
+  transition: all 0.9s ease; // smooth animation
+}
+
+.page-wrapper.top-margin {
+  justify-content: flex-start; // move to top
+  padding-top: 50px;           // optional spacing from top
+}
+
+.lmn-width-100 {
+  width: 100vw;
+  text-align: center;
+}
