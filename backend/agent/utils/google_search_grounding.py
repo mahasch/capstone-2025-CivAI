@@ -1,5 +1,9 @@
+import logging
+
 from google.genai import types
-from backend.agent.utils.genai_client import _client as client
+from backend.agent.utils.genai_client import get_genai_client
+
+logger = logging.getLogger(__name__)
 
 def search_google(query: str) -> dict:
     # 1. Configure grounding
@@ -9,7 +13,7 @@ def search_google(query: str) -> dict:
 
     # 2. Helper to query search-grounded model
     def query_with_grounding():
-        response = client.models.generate_content(
+        response = get_genai_client().models.generate_content(
             model="gemini-2.0-flash",
             contents=query,
             config=config_with_search
@@ -34,7 +38,7 @@ def safe_google_search(query):
     try:
         return search_google(query)
     except Exception as e:
-        if "quota" in str(e).lower() or "429" in str(e):
-            print("[GOOGLE QUOTA HIT] Falling back")
+        if isinstance(e, EnvironmentError) or "quota" in str(e).lower() or "429" in str(e):
+            logger.warning("Google search unavailable; using fallback: %s", e)
             return []
         raise

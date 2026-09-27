@@ -1,7 +1,7 @@
 import pickle
 import os
 
-from session_memory import SessionMemory
+from backend.agent.utils.session_memory import SessionMemory
 
 MEMORY_FILE = "session_memory.pkl"
 

@@ -3,7 +3,7 @@ from langgraph.graph import add_messages
 # The State object defines all the information passed between agents in the LangGraph workflow.
 class State(TypedDict):
     postcode: Annotated[str, add_messages]
-    borough: Annotated[Optional[str], add_messages]
+    borough: Optional[str]
     policy: Annotated[Optional[Dict], add_messages]  
     housing: Annotated[Optional[Dict], add_messages]
     transport: Annotated[Optional[Dict], add_messages]

@@ -1,5 +1,5 @@
 from backend.agent.utils.extract_postcode import extract_postcode
-from backend.agent.utils.genai_client import _client as client
+from backend.agent.utils.genai_client import get_genai_client
 from backend.agent.utils.google_search_grounding import safe_google_search
 from backend.agent.utils.state import State
 from backend.agent.transport.fallback_summary import BOROUGH_TRANSPORT_PROFILES
@@ -53,7 +53,7 @@ def community_agent(state: State) -> State:
 
         {text_to_summarise}
         """
-        summary_response = client.models.generate_content(
+        summary_response = get_genai_client().models.generate_content(
             model="gemini-2.0-flash",
             contents=summary_prompt
         )
@@ -67,8 +67,11 @@ Borough community profile:
 {profile}
 """
 
-    state["community"] = [
-        HumanMessage(content=summary_response.text.strip())
-    ]
+    summary_text = (
+        summary_response.text.strip()
+        if hasattr(summary_response, "text")
+        else summary_response.strip()
+    )
+    state["community"] = [HumanMessage(content=summary_text)]
 
     return state

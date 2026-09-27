@@ -1,6 +1,7 @@
 import requests
 from collections import Counter
 import pickle
+from pathlib import Path
 
 
 class CrimeData:
@@ -10,10 +11,20 @@ class CrimeData:
         self.get_crime_data = self.get_crime_by_postcode()
 
     def get_crime_by_postcode(self):
-        with open(r"backend\agent\crime\crime_by_borough.pkl", "rb") as f:
-            crime_db = pickle.load(f) 
         if not self.borough:
             return None
+
+        crime_file = (
+            Path(__file__).resolve().parents[1]
+            / "pre_processing_data"
+            / "crime_dataset"
+            / "crime_by_borough.pkl"
+        )
+        if not crime_file.exists():
+            return None
+
+        with crime_file.open("rb") as f:
+            crime_db = pickle.load(f)
 
         data = crime_db.get(self.borough)
         if data:

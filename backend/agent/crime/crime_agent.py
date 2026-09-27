@@ -2,7 +2,7 @@ from langchain.schema import HumanMessage
 from backend.agent.utils.state import State
 from backend.agent.crime.crime_data import CrimeData
 from backend.agent.utils.extract_postcode import extract_postcode
-from backend.agent.utils.genai_client import _client as client
+from backend.agent.utils.genai_client import get_genai_client
 
 def crime_and_safety_agent(state: State) -> State:
     # Get the latest postcode string
@@ -30,7 +30,7 @@ def crime_and_safety_agent(state: State) -> State:
             Return the summary as natural language text.
             """
 
-    response = client.models.generate_content(
+    response = get_genai_client().models.generate_content(
         model="gemini-2.0-flash",
         contents=prompt
     )

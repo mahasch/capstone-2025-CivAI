@@ -8,14 +8,14 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class PostcodeService {
-  private readonly apiUrl = 'https://your-backend/api/postcode';
+  private readonly apiUrl = 'http://localhost:3000/api/postcode';
 
   constructor(private http: HttpClient) {}
 
   sendPostcode(postcode: string): Observable<any> {
 
     return this.http.post(this.apiUrl, {
-      payload: postcode,
+      postcode: postcode
     });
   }
 }
